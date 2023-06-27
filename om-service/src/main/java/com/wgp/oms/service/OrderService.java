@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.wgp.oms.dal.entity.Order;
+import com.wgp.oms.dal.entity.Torder;
 import com.wgp.oms.dal.mapper.OrderMapper;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +18,9 @@ public class OrderService {
     @Resource
     private OrderMapper orderMapper;
 
-    public List<Order> queryOrderList() {
-        QueryWrapper<Order> wrapper = new QueryWrapper<Order>();
-        wrapper.eq("order_id",1L);
+    public List<Torder> queryOrderById(Long orderId) {
+        QueryWrapper<Torder> wrapper = new QueryWrapper<Torder>();
+        wrapper.eq("order_id",orderId);
         return orderMapper.selectList(wrapper);
     }
 
